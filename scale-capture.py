@@ -20,14 +20,6 @@ for file1 in file_list:
 cap = cv2.VideoCapture(0)
 print("start")
 
-"""
-filename = 'asample001.jpg'
-IMG_P = filename
-reader = easyocr.Reader(['en'])
-RST = reader.readtext(IMG_P)
-print(RST)
-"""
-
 while True:
     try:
         dt_now = datetime.datetime.now()
@@ -38,11 +30,12 @@ while True:
         if not ret:
             print("not capture")
             break
-
+        """
+        cv2.imshow('camera',cap)
         key = cv2.waitKey(1)
         if key == 13:  # enter
             break
-
+        """
         if sec % capture_cycle == 0:
             filename = dt_now.strftime("pic/cap%Y%m%d-%H%M%S.jpg")
             cv2.imwrite(filename, frame)
